@@ -7,9 +7,15 @@
 //
 
 #include <iostream>
-
+#include "../SortCampare.hpp"
+using namespace MathLab;
+void print(const int&);
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+
+    SortCompare::Compare(Shell, Selection, 200);
+
     return 0;
+}
+void print(const int& value){
+    printf("%d ", value);
 }

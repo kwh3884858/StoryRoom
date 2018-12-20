@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7655C07F21B96F3D0059D925 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7655C07E21B96F3D0059D925 /* main.cpp */; };
+		7655C08721B96F6E0059D925 /* MathLab.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7655C08521B96F6E0059D925 /* MathLab.cpp */; };
+		76BCFE8C21CA815A00137F69 /* SortCampare.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76BCFE8A21CA815A00137F69 /* SortCampare.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,10 @@
 /* Begin PBXFileReference section */
 		7655C07B21B96F3D0059D925 /* StoryRoom */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = StoryRoom; sourceTree = BUILT_PRODUCTS_DIR; };
 		7655C07E21B96F3D0059D925 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		7655C08521B96F6E0059D925 /* MathLab.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MathLab.cpp; sourceTree = "<group>"; };
+		7655C08621B96F6E0059D925 /* MathLab.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MathLab.hpp; sourceTree = "<group>"; };
+		76BCFE8A21CA815A00137F69 /* SortCampare.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SortCampare.cpp; sourceTree = "<group>"; };
+		76BCFE8B21CA815A00137F69 /* SortCampare.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SortCampare.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +47,10 @@
 		7655C07221B96F3D0059D925 = {
 			isa = PBXGroup;
 			children = (
+				76BCFE8A21CA815A00137F69 /* SortCampare.cpp */,
+				76BCFE8B21CA815A00137F69 /* SortCampare.hpp */,
+				7655C08521B96F6E0059D925 /* MathLab.cpp */,
+				7655C08621B96F6E0059D925 /* MathLab.hpp */,
 				7655C07D21B96F3D0059D925 /* StoryRoom */,
 				7655C07C21B96F3D0059D925 /* Products */,
 			);
@@ -119,6 +129,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7655C07F21B96F3D0059D925 /* main.cpp in Sources */,
+				76BCFE8C21CA815A00137F69 /* SortCampare.cpp in Sources */,
+				7655C08721B96F6E0059D925 /* MathLab.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
