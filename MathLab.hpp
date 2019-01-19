@@ -16,23 +16,29 @@ namespace MathLab {
     class LabArray{
 
         int CAPACITY = 4 ;
-        int length = 0 ;
-        T* m_sort;
 
+        T* m_sort = nullptr;
+        T* m_temp = nullptr;
+    public:
+        int length = 0 ;
+
+        
+    private:
+        void Swap(int i, int j);
+        inline bool IsLess(const T& source, const T& target) const;
+        void SortMerge(const int low, const int high);
+        void Merge(int low, int mid, int high);
 
     public:
 
         LabArray();
-        LabArray(int count);
-
-        void Swap(int i, int j);
+//        LabArray(int count);
+        
         void Add(const T& t);
-        inline bool IsLess(const T& source, const T& target) const;
-//        inline int Length()const;
-
         void SortSelection();
         void SortInsertion();
         void SortShell();
+        void SortMerge();
 
         void Traversal(void( *callback)(const T & ))const;
 
@@ -47,19 +53,6 @@ namespace MathLab {
         m_sort = nullptr;
     }
 
-    template <typename T>
-    MathLab::LabArray<T>::LabArray(int count) {
-        m_sort = new T[count];
-    }
-
-    //template <typename T>
-    //inline int MathLab::LabArray<T>::Length() const {
-    //    if (m_sort == nullptr) {
-    //        return 0;
-    //    }
-    //    int size = sizeof(m_sort);
-    //    return size;
-    //}
 
     //a class must implement copy constructor
     template <typename T>
@@ -137,6 +130,53 @@ namespace MathLab {
         }
     }
 
+    template<typename T>
+    void MathLab::LabArray<T>::SortMerge(){
+        m_temp = new T[length];
+        SortMerge(0, length - 1);
+        delete [] m_temp;
+    }
+
+    template<typename T>
+    void MathLab::LabArray<T>::SortMerge(const int low, const int high){
+        if(low >= high){
+            return;
+        }
+        int mid =low + ( high - low) / 2 ;
+        SortMerge(low, mid);
+        SortMerge(mid + 1, high);
+        Merge(low, mid, high);
+
+    }
+
+    template<typename T>
+    void MathLab::LabArray<T>::Merge(int low, int mid, int high){
+        int i = low;
+        int j = mid + 1;
+
+        for(int k = low; k <= high; k++ ){
+            m_temp[k] = m_sort[k];
+        }
+        for (int k = low ; k <= high ; k++ ) {
+            if ( i > mid ) {
+                m_sort[ k ] = m_temp[ j ];
+                j++;
+            }
+            else if ( j > high) {
+                m_sort[ k ] = m_temp[ i ];
+                i++;
+            }
+            else if ( m_temp[i] < m_temp[j] ) {
+                m_sort[ k ] = m_temp[ i ];
+                i++;
+            }else{
+                m_sort[ k ] = m_temp[ j ];
+                j++;
+            }
+        }
+
+    }
+
     template <typename T>
     void MathLab::LabArray<T>::Traversal(void( *callback)(const T & ))const {
 
@@ -149,6 +189,9 @@ namespace MathLab {
     MathLab::LabArray<T>::~LabArray() {
         if (m_sort != nullptr) {
             delete [] m_sort;
+        }
+        if (m_temp != nullptr) {
+            delete [] m_temp;
         }
     }
 }

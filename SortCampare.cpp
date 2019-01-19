@@ -39,6 +39,11 @@ namespace MathLab {
             array.SortShell();
             m_endTime = clock();
         }
+        if (!strcmp(algorithm, "Merge")) {
+            m_startTime =clock();
+            array.SortMerge();
+            m_endTime = clock();
+        }
         return m_endTime - m_startTime;
 
     }
@@ -49,6 +54,15 @@ namespace MathLab {
             array->Add(rand());
         }
     }
+
+    void SortCompare::Print(MathLab::LabArray<int> * array){
+        array->Traversal(Print);
+    }
+
+    void SortCompare::Print(const int& value){
+        printf("%d ", value);
+    }
+
 
 }
 

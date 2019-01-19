@@ -18,15 +18,20 @@ namespace MathLab {
     const char Insertion[] = "Insertion";
     const char Selection[] = "Selection";
     const char Shell[] = "Shell";
-
+    const char Merge[] = "Merge";
     class SortCompare{
 
     public:
         SortCompare();
         ~SortCompare();
         static void Compare (const char source[] ,const char target[], int count);
-        static clock_t CalculateTime(const char algorithm[],int count);
         static void GenerateRandomNum( MathLab::LabArray<int> * array, int count);
+        static void Print(MathLab::LabArray<int> * array);
+        static void Print(const int& value);
+
+    private:
+        static clock_t CalculateTime(const char algorithm[],int count);
+
     };
 }
 
